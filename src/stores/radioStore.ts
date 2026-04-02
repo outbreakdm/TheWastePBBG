@@ -80,7 +80,7 @@ export const useRadioStore = create<RadioState>((set, get) => ({
     const survivor = useSurvivorStore.getState().activeSurvivor
     if (!profile || !survivor) return { success: false, message: 'No active survivor' }
 
-    const payload = event.payload as EventTemplate & { templateId: string }
+    const payload = event.payload as unknown as EventTemplate & { templateId: string }
     if (!payload.actionable) return { success: false, message: 'Not actionable' }
 
     // Check stamina

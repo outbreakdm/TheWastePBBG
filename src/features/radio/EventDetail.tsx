@@ -26,7 +26,7 @@ export function EventDetail({ event, onClose }: EventDetailProps) {
 
   if (!event) return null
 
-  const payload = event.payload as EventTemplate & { templateId: string }
+  const payload = event.payload as unknown as EventTemplate & { templateId: string }
   const category = event.event_type as EventCategory
   const icon = CATEGORY_ICONS[category] ?? ''
 
